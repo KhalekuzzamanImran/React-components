@@ -4,9 +4,10 @@ import { useState } from "react";
 interface Props {
   items: string[];
   heading: string;
+  onSelectedItem: (item: string) => void;
 }
 
-function ListGroups({ items, heading }: Props) {
+function ListGroups({ items, heading, onSelectedItem }: Props) {
   let msg = items.length === 0 && <p>No item found!</p>;
   // Hook (useState)
   const [selectedIndex, setSelectedIndex] = useState(-1);
@@ -23,7 +24,10 @@ function ListGroups({ items, heading }: Props) {
                 : "list-group-item"
             }
             key={item}
-            onClick={() => setSelectedIndex(index)}
+            onClick={() => {
+              setSelectedIndex(index);
+              onSelectedItem(item);
+            }}
           >
             {item}
           </li>
