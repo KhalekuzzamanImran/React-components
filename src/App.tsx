@@ -1,5 +1,6 @@
 import ListGroups from "./components/ListGroups";
 import Message from "./components/Message";
+import { Alert } from "./components/Alert";
 
 function App() {
   let items = ["New york", "San Francisco", "Tokyo", "London", "Paris"];
@@ -17,6 +18,7 @@ function App() {
           heading="Cities"
           onSelectedItem={handleSelectedItem}
         />
+        <Alert />
       </>
     </div>
   );
